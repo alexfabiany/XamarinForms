@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App01_ConsultarCEP.MainPage">
+
+    <StackLayout BackgroundColor="#FFBF00" Padding="40" Spacing="30">
+        <Image Source="logo-correios.png" x:Name="logo"/>
+        <Entry TextColor="#000000"  Placeholder="Informe o CEP" BackgroundColor="#FFFFFF" x:Name="editCEP"/>
+        <Button Text="BUSCAR CEP" TextColor="#FFFFFF" FontFamily="SegueUI" FontSize="20" Padding="30" BackgroundColor="#00416B" x:Name="btnBuscar"/>
+        <Label Text="" TextColor="#000000" FontFamily="SegueUI" FontSize="20" x:Name="resultado"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        <!--
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        -->
+    </StackLayout>
+
+</ContentPage>
