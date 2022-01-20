@@ -22,20 +22,36 @@ namespace App01_ConsultarCEP
 
             if (isValidCEP(cep))
             {
-                Endereco end = ViaCEPServico.BuscarEnderecoViaCEP(cep);
-
-                if (end.ToString().Trim().Length > 0)
+                try
                 {
-                    resultado.Text =
-                        $"Endereço: {end.logradouro}\n" +
-                        $"Bairro: {end.bairro}\n" +
-                        $"Cidade/UF: {end.localidade}/{end.uf}\n" +
-                        $"DDD: {end.ddd}\n" +
-                        $"CEP: {end.cep}";
+                    Endereco end = ViaCEPServico.BuscarEnderecoViaCEP(cep);
+
+                    if (end != null)
+                    {
+                        resultado.Text =
+                            $"Endereço: {end.logradouro}\n" +
+                            $"Bairro: {end.bairro}\n" +
+                            $"Cidade/UF: {end.localidade}/{end.uf}\n" +
+                            $"DDD: {end.ddd}\n" +
+                            $"CEP: {end.cep}";
+                    }
+                    else
+                    {
+                        resultado.Text = $"O Endereço para o CEP {cep} não foi encontrado!";
+                    }
+                }
+                catch (Exception e)
+                {
+                    DisplayAlert("Erro inesperado!", e.Message, "OK");
                 }
             }
 
-            editCEP.Focus();
+            if (editCEP.Text.Length > 8)
+            {
+                editCEP.Text = editCEP.Text.Trim();
+
+                editCEP.Focus();
+            }
         }
 
         private bool isValidCEP(string cep)
@@ -48,13 +64,13 @@ namespace App01_ConsultarCEP
 
                 result = false;
             }
-            else if(!int.TryParse(cep, out int novoCEP))
+            else if (!int.TryParse(cep, out int novoCEP))
             {
                 DisplayAlert("Atenção", "CEP Inválido! O Cep deve conter apenas números.", "OK");
 
                 result = false;
             }
-            
+
 
             return result;
         }
