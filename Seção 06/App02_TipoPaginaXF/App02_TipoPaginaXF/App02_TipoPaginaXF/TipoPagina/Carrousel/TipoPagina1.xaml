@@ -5,9 +5,7 @@
               BackgroundColor="LightSkyBlue">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Spacing="35">
-            <Label Text="Tipos de Página" TextColor="DarkBlue"
-                
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Tipos de Página" TextColor="DarkBlue" HorizontalOptions="CenterAndExpand" />
             <Image Source="xamarin.png"/>
         </StackLayout>
     </ContentPage.Content>
